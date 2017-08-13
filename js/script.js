@@ -12,17 +12,17 @@ function loadData() {
     $nytElem.text("");
 
     // load streetview
-    var streetStr = $('#street').val();
-    var cityStr = $('#city').val;
-    var address = streetStr + ',' + cityStr;
+    var streetStr = $('#street').val(); //input from street name
+    var cityStr = $('#city').val(); //city input
+    var address = streetStr + ',' + cityStr; //concatenating the street and city to add in the google api url
 
-    $greeting.text('So,you want to live at' + address + '?');
+    $greeting.text('So,you want to live at ' + address + '?'); //adding the address as a greeting message
 
-    var streetviewUrl = 'http://maps.googleapis.com/maps/api/streetview?size=600x300&location=' + address + '';
-    $body.append('<img class="bgimg" src=" '+ streetviewUrl +'" >');
+    var streetviewUrl = 'http://maps.googleapis.com/maps/api/streetview?size=600x300&location=' + address + ''; //no need of api key and this loads the google api and takes our address as input and adds it to the url
+    $body.append('<img class="bgimg" src=" ' + streetviewUrl + '" >'); //adds the url image to the background
     // YOUR CODE GOES HERE!
 
     return false;
 };
 
-$('#form-container').submit(loadData);
+$('#form-container').submit(loadData); //calls the load data function
