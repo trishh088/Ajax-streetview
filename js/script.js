@@ -45,9 +45,9 @@ function loadData() {
  var wikiUrl = 'https://en.wikipedia.org/w/api.php?action=opensearch&search=' + cityStr + '&format=json&callback=wikiCallback';
  var wikiRequestTimeout = setTimeout(function(){
    $wikiElem.text("failed to get wiki resources");
- },8000);
+ },8000);  //error handling so after8s or 8000ms if the wiki doesnt load it gives this error  msg
 
- $.ajax({
+ $.ajax({  //ajax request no api key requiredfor wiki api
    url:wikiUrl,
    dataType:"jsonp",
    //jsonp:"callback",
@@ -58,7 +58,7 @@ function loadData() {
        var url='http://en.wikipedia.org/wiki/'+articleStr;
        $wikiElem.append('<li><a href=" '+url+' " >'+ articleStr+ '</a></li>');
      };
-     clearTimeout(wikiRequestTimeout);
+     clearTimeout(wikiRequestTimeout); //to stop the 8000ms timer
    }
  });
  return false; //important as you wont get the output without it
